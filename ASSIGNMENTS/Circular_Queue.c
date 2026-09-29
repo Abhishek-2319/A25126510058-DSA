@@ -1,20 +1,14 @@
 #include <stdio.h>
-
 #define SIZE 5
-
 int queue[SIZE];
 int front = -1, rear = -1;
-
-void insert()
-{
+void insert() {
     int value;
-
     if((rear + 1) % SIZE == front)
     {
         printf("Queue Overflow\n");
         return;
     }
-
     printf("Enter value: ");
     scanf("%d", &value);
 
@@ -57,48 +51,37 @@ void display()
         printf("Queue is empty\n");
         return;
     }
-
     printf("Queue: ");
-
     i = front;
-
     while(1)
     {
         printf("%d ", queue[i]);
-
         if(i == rear)
             break;
-
         i = (i + 1) % SIZE;
     }
-
     printf("\n");
 }
 
 int main()
 {
     int choice;
-
     while(1)
     {
         printf("\n1. Insert\n");
         printf("2. Delete\n");
         printf("3. Display\n");
         printf("4. Exit\n");
-
         printf("Enter your choice: ");
         scanf("%d", &choice);
-
         switch(choice)
         {
             case 1:
                 insert();
                 break;
-
             case 2:
                 delete();
                 break;
-
             case 3:
                 display();
                 break;
